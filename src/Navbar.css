@@ -45,6 +45,10 @@
   transition: color var(--transition), background var(--transition);
 }
 .navbar__link:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.navbar__link.active {
+  color: var(--teal);
+  font-weight: 600;
+}
 .navbar__cta {
   background: var(--teal);
   color: #fff;

@@ -6,9 +6,24 @@ import "./Navbar.css";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 40);
+    const fn = () => {
+      setScrolled(window.scrollY > 40);
+
+      const sections = ["#products", "#capacity", "#certifications", "#impact"];
+      for (let href of sections) {
+        const el = document.querySelector(href);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActive(href);
+            break;
+          }
+        }
+      }
+    };
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
@@ -30,7 +45,7 @@ export default function Navbar() {
         <ul className={`navbar__links ${open ? "navbar__links--open" : ""}`}>
           {links.map(l => (
             <li key={l.href}>
-              <a href={l.href} className="navbar__link" onClick={() => setOpen(false)}>{l.label}</a>
+              <a href={l.href} className={`navbar__link ${active === l.href ? "active" : ""}`} onClick={() => setOpen(false)}>{l.label}</a>
             </li>
           ))}
           <li>
