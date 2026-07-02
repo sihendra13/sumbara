@@ -7,6 +7,8 @@ export default function HeroVariant1() {
   const videoRef = useRef(null);
   const contentRef = useRef(null);
   const [showContent, setShowContent] = useState(false);
+  const timelineRef = useRef(0);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -14,12 +16,28 @@ export default function HeroVariant1() {
 
       const x = e.clientX / window.innerWidth;
       const duration = videoRef.current.duration;
-      const newTime = x * duration;
+      const targetTime = x * duration;
 
-      videoRef.current.currentTime = newTime;
+      // Cancel previous animation
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
 
-      const isNearEnd = newTime / duration > 0.85;
-      setShowContent(isNearEnd);
+      // Smooth animation with requestAnimationFrame
+      const animate = () => {
+        const diff = targetTime - timelineRef.current;
+        const newTime = timelineRef.current + diff * 0.15; // Smooth easing
+
+        videoRef.current.currentTime = newTime;
+        timelineRef.current = newTime;
+
+        const isNearEnd = newTime / duration > 0.85;
+        setShowContent(isNearEnd);
+
+        if (Math.abs(diff) > 0.01) {
+          animationRef.current = requestAnimationFrame(animate);
+        }
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -31,12 +49,11 @@ export default function HeroVariant1() {
       <video
         ref={videoRef}
         className="hero__video"
-        src="/assets/petani-rumput-laut.mp4"
+        src="/petani-rumput-laut.mp4"
         preload="metadata"
         muted
         playsInline
       />
-      <div className="hero__overlay" />
 
       <div className={`container hero__content ${showContent ? "hero__content--visible" : ""}`} ref={contentRef}>
         <div className="hero__eyebrow">

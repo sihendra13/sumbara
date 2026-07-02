@@ -34,12 +34,11 @@ export default function HeroVariant3() {
       <video
         ref={videoRef}
         className="hero__video"
-        src="/assets/petani-rumput-laut.mp4"
+        src="/petani-rumput-laut.mp4"
         preload="metadata"
         muted
         playsInline
       />
-      <div className="hero__overlay" />
 
       <div
         className={`container hero__content ${showContent ? "hero__content--visible" : ""}`}

@@ -5,6 +5,7 @@ import Hero from './Hero'
 import HeroVariant1 from './HeroVariant1'
 import HeroVariant2 from './HeroVariant2'
 import HeroVariant3 from './HeroVariant3'
+import HeroVariant5 from './HeroVariant5'
 import Products from './Products'
 import Capacity from './Capacity'
 import { Certifications, Impact } from './CertImpact'
@@ -20,7 +21,7 @@ export default function App() {
     if (v === '1' || v === '2' || v === '3') setVariant(parseInt(v))
   }, [])
 
-  const HeroComponent = variant === 1 ? HeroVariant1 : variant === 2 ? HeroVariant2 : variant === 3 ? HeroVariant3 : Hero
+  const HeroComponent = variant === 1 ? HeroVariant1 : variant === 2 ? HeroVariant2 : variant === 3 ? HeroVariant3 : variant === 5 ? HeroVariant5 : Hero
 
   return (
     <>
@@ -33,6 +34,7 @@ export default function App() {
             <a href="?hero=1" style={{padding: '4px 8px', background: variant === 1 ? '#2AA5A0' : '#555', borderRadius: '4px', color: '#fff', textDecoration: 'none', fontSize: '11px'}}>V1</a>
             <a href="?hero=2" style={{padding: '4px 8px', background: variant === 2 ? '#2AA5A0' : '#555', borderRadius: '4px', color: '#fff', textDecoration: 'none', fontSize: '11px'}}>V2</a>
             <a href="?hero=3" style={{padding: '4px 8px', background: variant === 3 ? '#2AA5A0' : '#555', borderRadius: '4px', color: '#fff', textDecoration: 'none', fontSize: '11px'}}>V3</a>
+            <a href="?hero=5" style={{padding: '4px 8px', background: variant === 5 ? '#2AA5A0' : '#555', borderRadius: '4px', color: '#fff', textDecoration: 'none', fontSize: '11px'}}>V5</a>
             <a href="/" style={{padding: '4px 8px', background: variant === 0 ? '#2AA5A0' : '#555', borderRadius: '4px', color: '#fff', textDecoration: 'none', fontSize: '11px'}}>Default</a>
           </div>
         </div>
