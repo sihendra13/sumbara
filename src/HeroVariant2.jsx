@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { stats } from "./data";
-import gsap from "gsap";
 import "./Hero.css";
 
 export default function HeroVariant2() {
@@ -9,6 +8,7 @@ export default function HeroVariant2() {
   const contentRef = useRef(null);
   const [showContent, setShowContent] = useState(false);
   const timelineRef = useRef(0);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -18,21 +18,26 @@ export default function HeroVariant2() {
       const duration = videoRef.current.duration;
       const targetTime = x * duration;
 
-      gsap.to(
-        { time: timelineRef.current },
-        {
-          time: targetTime,
-          duration: 0.3,
-          ease: "power2.out",
-          onUpdate: function () {
-            videoRef.current.currentTime = this.targets()[0].time;
-            timelineRef.current = this.targets()[0].time;
+      // Cancel previous animation
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
 
-            const isNearEnd = this.targets()[0].time / duration > 0.85;
-            setShowContent(isNearEnd);
-          },
+      // Smooth animation with requestAnimationFrame
+      const animate = () => {
+        const diff = targetTime - timelineRef.current;
+        const newTime = timelineRef.current + diff * 0.2; // Easing factor
+
+        videoRef.current.currentTime = newTime;
+        timelineRef.current = newTime;
+
+        const isNearEnd = newTime / duration > 0.85;
+        setShowContent(isNearEnd);
+
+        if (Math.abs(diff) > 0.01) {
+          animationRef.current = requestAnimationFrame(animate);
         }
-      );
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
