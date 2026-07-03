@@ -13,7 +13,6 @@ export default function Hero() {
         muted
         playsInline
       />
-      <div className="hero__overlay" />
 
       <div className="container hero__content">
         <div className="hero__eyebrow">
