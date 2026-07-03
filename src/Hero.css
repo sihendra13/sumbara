@@ -26,9 +26,15 @@
 .hero__content {
   position: relative;
   z-index: 1;
-  padding-top: 100px;
-  padding-bottom: 120px;
+  padding: 100px 0 120px;
+  width: 100%;
+}
+.hero__content .container {
   max-width: 760px;
+  background: rgba(0,0,0,0.3);
+  padding: 40px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
 }
 .hero__eyebrow {
   display: inline-flex;
