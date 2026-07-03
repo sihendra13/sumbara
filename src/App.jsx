@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './index.css'
 import Navbar from './Navbar'
-import Hero from './Hero'
 import HeroVariant1 from './HeroVariant1'
 import HeroVariant2 from './HeroVariant2'
 import Products from './Products'
@@ -19,7 +18,7 @@ export default function App() {
     if (v === '1' || v === '2' || v === '3') setVariant(parseInt(v))
   }, [])
 
-  const HeroComponent = variant === 1 ? HeroVariant1 : variant === 2 ? HeroVariant2 : Hero
+  const HeroComponent = variant === 1 ? HeroVariant1 : HeroVariant2
 
   return (
     <>
