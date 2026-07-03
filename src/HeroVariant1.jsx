@@ -1,47 +1,58 @@
 import { useRef, useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { stats } from "./data";
+import gsap from "gsap";
 import "./Hero.css";
 
 export default function HeroVariant1() {
   const videoRef = useRef(null);
-  const contentRef = useRef(null);
+  const tlRef = useRef(null);
   const [showContent, setShowContent] = useState(false);
-  const timelineRef = useRef(0);
-  const animationRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!videoRef.current) return;
+    if (!videoRef.current) return;
 
-      const x = e.clientX / window.innerWidth;
-      const duration = videoRef.current.duration;
-      const targetTime = x * duration;
+    const video = videoRef.current;
 
-      // Cancel previous animation
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    // Wait for metadata
+    const setupTimeline = () => {
+      if (!video.duration) {
+        requestAnimationFrame(setupTimeline);
+        return;
+      }
 
-      // Smooth animation with requestAnimationFrame
-      const animate = () => {
-        const diff = targetTime - timelineRef.current;
-        const newTime = timelineRef.current + diff * 0.15; // Smooth easing
+      // Create GSAP timeline mapped to video duration
+      const tl = gsap.timeline({ paused: true });
+      tl.to({}, { duration: video.duration }, {
+        onUpdate() {
+          if (video.duration) {
+            video.currentTime = tl.progress() * video.duration;
 
-        videoRef.current.currentTime = newTime;
-        timelineRef.current = newTime;
-
-        const isNearEnd = newTime / duration > 0.85;
-        setShowContent(isNearEnd);
-
-        if (Math.abs(diff) > 0.01) {
-          animationRef.current = requestAnimationFrame(animate);
+            const isNearEnd = video.currentTime / video.duration > 0.85;
+            setShowContent(isNearEnd);
+          }
         }
-      };
+      });
 
-      animationRef.current = requestAnimationFrame(animate);
+      tlRef.current = tl;
+    };
+
+    video.addEventListener("loadedmetadata", setupTimeline);
+    if (video.duration) setupTimeline();
+
+    const handleMouseMove = (e) => {
+      if (!tlRef.current || !video.duration) return;
+
+      const progress = e.clientX / window.innerWidth;
+      tlRef.current.progress(progress);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      video.removeEventListener("loadedmetadata", setupTimeline);
+    };
   }, []);
 
   return (
