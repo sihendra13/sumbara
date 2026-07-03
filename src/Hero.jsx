@@ -5,14 +5,15 @@ import "./Hero.css";
 export default function Hero() {
   return (
     <section className="hero">
-      <div className="hero__bg">
-        <img
-          src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1400&q=85"
-          alt="Indonesian seaweed harvest"
-          className="hero__bg-img"
-        />
-        <div className="hero__overlay" />
-      </div>
+      <video
+        className="hero__video"
+        src="/petani-rumput-laut.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="hero__overlay" />
 
       <div className="container hero__content">
         <div className="hero__eyebrow">
