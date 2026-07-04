@@ -63,25 +63,26 @@
   content: '';
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(100px);
   z-index: 0;
-  animation: orbFloat 15s ease-in-out infinite alternate;
+  animation: orbFloat 10s ease-in-out infinite alternate;
   pointer-events: none;
+  mix-blend-mode: screen;
 }
 .impact::before {
-  width: 700px;
-  height: 700px;
-  background: rgba(127, 222, 217, 0.12); /* Light Teal */
-  top: -200px;
-  left: -200px;
-}
-.impact::after {
   width: 600px;
   height: 600px;
-  background: rgba(42, 165, 160, 0.12); /* Teal */
-  bottom: -100px;
+  background: rgba(127, 222, 217, 0.4); /* Light Teal */
+  top: -100px;
+  left: -150px;
+}
+.impact::after {
+  width: 500px;
+  height: 500px;
+  background: rgba(42, 165, 160, 0.5); /* Teal */
+  bottom: -50px;
   right: -100px;
-  animation-delay: -7s;
+  animation-delay: -5s;
 }
 
 @keyframes orbFloat {
