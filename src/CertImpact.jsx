@@ -48,17 +48,10 @@ export function Certifications() {
 export function Impact() {
   return (
     <section id="impact" className="impact section">
-      <div className="impact__bg">
-        <img
-          src="https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=1400&q=80"
-          alt="Coastal farming community"
-        />
-        <div className="impact__overlay" />
-      </div>
       <div className="container impact__content">
         <div className="impact__text">
           <span className="section-eyebrow" style={{ color: "#7FDED9" }}>Community & sustainability</span>
-          <h2 className="section-title" style={{ color: "#fff", textAlign: "left" }}>
+          <h2 className="section-title" style={{ color: "#fff", textAlign: "left", marginBottom: 16 }}>
             From the ocean.<br />For the community.
           </h2>
           <p className="section-sub" style={{ color: "rgba(255,255,255,0.72)", textAlign: "left" }}>
@@ -67,11 +60,28 @@ export function Impact() {
           </p>
         </div>
 
+        <div className="impact__video-bento">
+          <video 
+            src="/Asset/Activity 2.mp4" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="impact__video"
+          />
+        </div>
+
         <div className="impact__stats">
           {impactStats.map(s => (
             <div key={s.label} className="impact-stat">
-              <p className="impact-stat__value">{s.value}</p>
-              <p className="impact-stat__label">{s.label}</p>
+              <div className="impact-stat__bg">
+                <img src={s.image} alt={s.label} />
+                <div className="impact-stat__overlay" />
+              </div>
+              <div className="impact-stat__content">
+                <p className="impact-stat__value">{s.value}</p>
+                <p className="impact-stat__label">{s.label}</p>
+              </div>
             </div>
           ))}
         </div>

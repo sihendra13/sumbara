@@ -92,8 +92,8 @@ export const process = [
 ];
 
 export const impactStats = [
-  { value: "13+",    label: "Farmer families supported" },
-  { value: "2015",   label: "Community partnership since" },
-  { value: "Bima",   label: "West Nusa Tenggara origin" },
-  { value: "100%",   label: "Sun-dried, natural process" },
+  { value: "13+",    label: "Farmer families supported", image: "/Asset/community 1.jpeg" },
+  { value: "2015",   label: "Community partnership since", image: "/Asset/community 2.jpeg" },
+  { value: "Bima",   label: "West Nusa Tenggara origin", image: "/Asset/community 3.jpeg" },
+  { value: "100%",   label: "Sun-dried, natural process", image: "/Asset/community 4.jpeg" },
 ];
