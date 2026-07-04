@@ -92,14 +92,15 @@ export const process = [
 ];
 
 export const impactStats = [
+  { value: "Bima",   label: "West Nusa Tenggara origin", image: "/Asset/community 3.jpeg" },
   { value: "13+",    label: "Farmer families supported", image: "/Asset/community 1.jpeg" },
   { value: "2015",   label: "Community partnership since", image: "/Asset/community 2.jpeg" },
-  { value: "Bima",   label: "West Nusa Tenggara origin", image: "/Asset/community 3.jpeg" },
   { value: "100%",   label: "Sun-dried, natural process", image: "/Asset/community 4.jpeg" },
   { value: "500+",   label: "MT Warehouse Capacity", image: "/Asset/Activity 3 gudang.jpeg" },
 ];
 
 export const activityVideos = [
   "/Asset/Activity 1.mp4",
-  "/Asset/Activity 2.mp4"
+  "/Asset/Activity 2.mp4",
+  "/Asset/petani-rumput-laut.mp4"
 ];
