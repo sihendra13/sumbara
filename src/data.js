@@ -97,3 +97,9 @@ export const impactStats = [
   { value: "Bima",   label: "West Nusa Tenggara origin", image: "/Asset/community 3.jpeg" },
   { value: "100%",   label: "Sun-dried, natural process", image: "/Asset/community 4.jpeg" },
 ];
+
+export const activityVideos = [
+  "/Asset/Activity 1.mp4",
+  "/Asset/Activity 2.mp4",
+  "/Asset/petani-rumput-laut.mp4"
+];

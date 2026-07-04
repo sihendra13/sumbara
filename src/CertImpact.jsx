@@ -1,5 +1,6 @@
+import { useState, useEffect } from "react";
 import { ShieldCheck, Lock, CheckCircle } from "lucide-react";
-import { certifications, impactStats } from "./data";
+import { certifications, impactStats, activityVideos } from "./data";
 import "./CertImpact.css";
 
 export function Certifications() {
@@ -46,6 +47,25 @@ export function Certifications() {
 }
 
 export function Impact() {
+  const [videoIdx, setVideoIdx] = useState(0);
+  const [statIdx, setStatIdx] = useState(0);
+
+  // Auto-play for photo carousel (4s)
+  useEffect(() => {
+    const statInterval = setInterval(() => {
+      setStatIdx((prev) => (prev + 1) % impactStats.length);
+    }, 4000);
+    return () => clearInterval(statInterval);
+  }, []);
+
+  // Auto-play for video carousel (8s)
+  useEffect(() => {
+    const videoInterval = setInterval(() => {
+      setVideoIdx((prev) => (prev + 1) % activityVideos.length);
+    }, 8000);
+    return () => clearInterval(videoInterval);
+  }, []);
+
   return (
     <section id="impact" className="impact section">
       <div className="container impact__content">
@@ -60,30 +80,57 @@ export function Impact() {
           </p>
         </div>
 
-        <div className="impact__video-bento">
-          <video 
-            src="/Asset/Activity 2.mp4" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="impact__video"
-          />
+        <div className="impact__carousel-container">
+          <div className="impact__video-bento">
+            {activityVideos.map((vid, idx) => (
+              <video 
+                key={vid}
+                src={vid} 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
+              />
+            ))}
+          </div>
+          <div className="carousel-dots">
+            {activityVideos.map((_, i) => (
+              <button 
+                key={i} 
+                className={`dot ${i === videoIdx ? 'active' : ''}`} 
+                onClick={() => setVideoIdx(i)} 
+                aria-label={`Go to video ${i + 1}`} 
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="impact__stats">
-          {impactStats.map(s => (
-            <div key={s.label} className="impact-stat">
-              <div className="impact-stat__bg">
-                <img src={s.image} alt={s.label} />
-                <div className="impact-stat__overlay" />
+        <div className="impact__carousel-container">
+          <div className="impact__stats-carousel">
+            {impactStats.map((s, idx) => (
+              <div key={s.label} className={`impact-stat-slide ${idx === statIdx ? 'active' : ''}`}>
+                <div className="impact-stat__bg">
+                  <img src={s.image} alt={s.label} />
+                  <div className="impact-stat__overlay" />
+                </div>
+                <div className="impact-stat__content">
+                  <p className="impact-stat__value">{s.value}</p>
+                  <p className="impact-stat__label">{s.label}</p>
+                </div>
               </div>
-              <div className="impact-stat__content">
-                <p className="impact-stat__value">{s.value}</p>
-                <p className="impact-stat__label">{s.label}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="carousel-dots">
+            {impactStats.map((_, i) => (
+              <button 
+                key={i} 
+                className={`dot ${i === statIdx ? 'active' : ''}`} 
+                onClick={() => setStatIdx(i)} 
+                aria-label={`Go to stat ${i + 1}`} 
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
