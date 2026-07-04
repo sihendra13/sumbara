@@ -14,8 +14,8 @@ export default function HeroVariant2() {
         playsInline
       />
 
-      <div className="hero__content">
-        <div className="container">
+      <div className="container">
+        <div className="hero__content">
           <div className="hero__eyebrow">
             <span className="hero__dot" />
             Bima, West Nusa Tenggara, Indonesia

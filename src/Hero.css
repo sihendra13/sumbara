@@ -22,6 +22,13 @@
     rgba(11,77,91,0.72) 50%,
     rgba(42,165,160,0.40) 100%
   );
+  transition: opacity 1.5s ease-in-out;
+}
+.hero--cinematic-hidden .hero__overlay {
+  opacity: 0;
+}
+.hero--cinematic-visible .hero__overlay {
+  opacity: 1;
 }
 .hero__content {
   position: relative;
@@ -29,6 +36,15 @@
   padding-top: 100px;
   padding-bottom: 120px;
   max-width: 760px;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+.hero--cinematic-hidden .hero__content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero--cinematic-visible .hero__content {
+  opacity: 1;
+  transform: translateY(0);
 }
 .hero__eyebrow {
   display: inline-flex;
