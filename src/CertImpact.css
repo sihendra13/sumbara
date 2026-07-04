@@ -74,14 +74,14 @@
   height: 600px;
   background: rgba(127, 222, 217, 0.4); /* Light Teal */
   bottom: -50px;
-  right: -100px;
+  left: -100px;
 }
 .impact::after {
   width: 500px;
   height: 500px;
   background: rgba(42, 165, 160, 0.5); /* Teal */
   top: -100px;
-  left: -150px;
+  right: -150px;
   animation-delay: -5s;
 }
 
