@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { ArrowDown } from "lucide-react";
 import { stats } from "./data";
 import "./Hero.css";
 
@@ -71,9 +70,6 @@ export default function HeroVariant2() {
         </div>
       </div>
 
-      <a href="#products" className="hero__scroll" aria-label="Scroll down">
-        <ArrowDown size={20} />
-      </a>
     </section>
   );
 }
