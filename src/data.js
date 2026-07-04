@@ -43,7 +43,7 @@ export const products = [
       "Industrial hydrocolloids",
     ],
     exportMarkets: ["Tunisia — carrageenan industry"],
-    image: "https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80",
+    image: "/Asset/cantoni.jpeg",
   },
   {
     id: "sargassum",
@@ -67,7 +67,7 @@ export const products = [
       "Agriculture & feed supplement",
     ],
     exportMarkets: ["China — alginate & industrial use"],
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
+    image: "/Asset/sargasum.png",
   },
 ];
 
