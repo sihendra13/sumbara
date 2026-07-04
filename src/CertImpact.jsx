@@ -70,72 +70,76 @@ export function Impact() {
     <section id="impact" className="impact section">
       <div className="container impact__content">
         
-        {/* TOP ROW: Text & Video in iPhone */}
-        <div className="impact__top-row">
-          <div className="impact__text">
-            <span className="section-eyebrow" style={{ color: "#7FDED9" }}>Community & sustainability</span>
-            <h2 className="section-title" style={{ color: "#fff", textAlign: "left", marginBottom: 16 }}>
-              From the ocean.<br />For the community.
-            </h2>
-            <p className="section-sub" style={{ color: "rgba(255,255,255,0.72)", textAlign: "left" }}>
-              Every kilogram sourced supports the coastal farming families of Bima.
-              We believe sustainable trade means the people behind the product benefit too.
-            </p>
-          </div>
+        <div className="impact__asymmetric-layout">
+          
+          {/* LEFT COLUMN: Text -> Stats -> Photo Carousel */}
+          <div className="impact__col-left">
+            <div className="impact__text">
+              <span className="section-eyebrow" style={{ color: "#7FDED9" }}>Community & sustainability</span>
+              <h2 className="section-title" style={{ color: "#fff", textAlign: "left", marginBottom: 16 }}>
+                From the ocean.<br />For the community.
+              </h2>
+              <p className="section-sub" style={{ color: "rgba(255,255,255,0.72)", textAlign: "left" }}>
+                Every kilogram sourced supports the coastal farming families of Bima.
+                We believe sustainable trade means the people behind the product benefit too.
+              </p>
+            </div>
 
-          <div className="impact__carousel-container impact__carousel--video">
-            <div className="landscape-video-container">
-              {activityVideos.map((vid, idx) => (
-                <video 
-                  key={vid}
-                  src={vid} 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
-                  className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
-                />
-              ))}
+            <div className="impact__stat-details">
+              <p className="impact-stat__value">{impactStats[statIdx].value}</p>
+              <p className="impact-stat__label">{impactStats[statIdx].label}</p>
             </div>
-            <div className="carousel-dots">
-              {activityVideos.map((_, i) => (
-                <button 
-                  key={i} 
-                  className={`dot ${i === videoIdx ? 'active' : ''}`} 
-                  onClick={() => setVideoIdx(i)} 
-                  aria-label={`Go to video ${i + 1}`} 
-                />
-              ))}
-            </div>
-          </div>
-        </div>
 
-        {/* BOTTOM ROW: Photo Carousel & Text Details */}
-        <div className="impact__bottom-row">
-          <div className="impact__carousel-container impact__carousel--photo">
-            <div className="impact__photo-carousel">
-              {impactStats.map((s, idx) => (
-                <div key={s.label} className={`impact-photo-slide ${idx === statIdx ? 'active' : ''}`}>
-                  <img src={s.image} alt={s.label} />
-                </div>
-              ))}
-            </div>
-            <div className="carousel-dots">
-              {impactStats.map((_, i) => (
-                <button 
-                  key={i} 
-                  className={`dot ${i === statIdx ? 'active' : ''}`} 
-                  onClick={() => setStatIdx(i)} 
-                  aria-label={`Go to photo ${i + 1}`} 
-                />
-              ))}
+            <div className="impact__carousel-container impact__carousel--photo">
+              <div className="impact__photo-carousel landscape">
+                {impactStats.map((s, idx) => (
+                  <div key={s.label} className={`impact-photo-slide ${idx === statIdx ? 'active' : ''}`}>
+                    <img src={s.image} alt={s.label} />
+                  </div>
+                ))}
+              </div>
+              <div className="carousel-dots">
+                {impactStats.map((_, i) => (
+                  <button 
+                    key={i} 
+                    className={`dot ${i === statIdx ? 'active' : ''}`} 
+                    onClick={() => setStatIdx(i)} 
+                    aria-label={`Go to photo ${i + 1}`} 
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="impact__stat-details">
-            <p className="impact-stat__value">{impactStats[statIdx].value}</p>
-            <p className="impact-stat__label">{impactStats[statIdx].label}</p>
+          {/* RIGHT COLUMN: Video Carousel */}
+          <div className="impact__col-right">
+            <div className="impact__carousel-container impact__carousel--video">
+              <div className="portrait-video-container">
+                {activityVideos.map((vid, idx) => (
+                  <video 
+                    key={vid}
+                    src={vid} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
+                  />
+                ))}
+              </div>
+              <div className="carousel-dots">
+                {activityVideos.map((_, i) => (
+                  <button 
+                    key={i} 
+                    className={`dot ${i === videoIdx ? 'active' : ''}`} 
+                    onClick={() => setVideoIdx(i)} 
+                    aria-label={`Go to video ${i + 1}`} 
+                  />
+                ))}
+              </div>
+            </div>
           </div>
+
         </div>
 
       </div>
