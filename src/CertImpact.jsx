@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShieldCheck, Lock, CheckCircle } from "lucide-react";
+import { Lock, CheckCircle } from "lucide-react";
 import { certifications, impactStats, activityVideos } from "./data";
 import "./CertImpact.css";
 

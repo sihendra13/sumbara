@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+
 import './index.css'
 import Navbar from './Navbar'
 import HeroVariant1 from './HeroVariant1'
@@ -10,13 +10,12 @@ import Inquiry from './Inquiry'
 import Footer from './Footer'
 
 export default function App() {
-  const [variant, setVariant] = useState(0)
-
-  useEffect(() => {
+  const variant = (() => {
     const params = new URLSearchParams(window.location.search)
     const v = params.get('hero')
-    if (v === '1' || v === '2' || v === '3') setVariant(parseInt(v))
-  }, [])
+    if (v === '1' || v === '2' || v === '3') return parseInt(v)
+    return 0
+  })()
 
   const HeroComponent = variant === 1 ? HeroVariant1 : HeroVariant2
 
