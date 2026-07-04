@@ -96,6 +96,7 @@ export const impactStats = [
   { value: "2015",   label: "Community partnership since", image: "/Asset/community 2.jpeg" },
   { value: "Bima",   label: "West Nusa Tenggara origin", image: "/Asset/community 3.jpeg" },
   { value: "100%",   label: "Sun-dried, natural process", image: "/Asset/community 4.jpeg" },
+  { value: "500+",   label: "MT Warehouse Capacity", image: "/Asset/Activity 3 gudang.jpeg" },
 ];
 
 export const activityVideos = [

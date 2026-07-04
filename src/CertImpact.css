@@ -54,7 +54,10 @@
   position: relative;
   padding: 120px 0;
   overflow: hidden;
-  background-color: var(--forest, #2C4C3B); /* Fallback to a dark green if var doesn't exist */
+  background-color: var(--ocean);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'%3E%3Cpath d='M0 20 Q 25 40, 50 20 T 100 20' fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 100px 40px;
+  background-repeat: repeat;
 }
 
 .impact__content {
@@ -80,47 +83,16 @@
   gap: 24px;
 }
 
-/* iPhone Mockup */
-.iphone-mockup {
-  position: relative;
-  width: 320px;
-  height: 650px;
-  background: #111;
-  border-radius: 54px;
-  padding: 14px;
-  box-shadow: inset 0 0 0 2px #555, inset 0 0 0 6px #000, 0 30px 60px rgba(0,0,0,0.6);
-}
-.iphone-notch {
-  position: absolute;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 110px;
-  height: 30px;
-  background: #000;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
-  z-index: 10;
-}
-.iphone-notch::after {
-  content: '';
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  box-shadow: inset -2px -2px 4px rgba(255,255,255,0.1);
-}
-.iphone-screen {
+/* Landscape Video Container */
+.landscape-video-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 40px;
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  border: 4px solid rgba(255, 255, 255, 0.1);
 }
 
 .impact__video {
@@ -225,6 +197,6 @@
   .certs__layout { grid-template-columns: 1fr; gap: 48px; }
   .impact__top-row { grid-template-columns: 1fr; gap: 48px; }
   .impact__bottom-row { grid-template-columns: 1fr; gap: 48px; }
-  .iphone-mockup { margin: 0 auto; width: 100%; max-width: 320px; }
+  .landscape-video-container { width: 100%; }
   .impact-stat__value { font-size: 64px; }
 }

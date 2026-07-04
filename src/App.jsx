@@ -37,9 +37,9 @@ export default function App() {
 
       <HeroComponent />
       <Products />
+      <Impact />
       <Capacity />
       <Certifications />
-      <Impact />
       <Inquiry />
       <Footer />
     </>

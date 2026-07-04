@@ -84,21 +84,18 @@ export function Impact() {
           </div>
 
           <div className="impact__carousel-container impact__carousel--video">
-            <div className="iphone-mockup">
-              <div className="iphone-notch"></div>
-              <div className="iphone-screen">
-                {activityVideos.map((vid, idx) => (
-                  <video 
-                    key={vid}
-                    src={vid} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
-                  />
-                ))}
-              </div>
+            <div className="landscape-video-container">
+              {activityVideos.map((vid, idx) => (
+                <video 
+                  key={vid}
+                  src={vid} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
+                />
+              ))}
             </div>
             <div className="carousel-dots">
               {activityVideos.map((_, i) => (
