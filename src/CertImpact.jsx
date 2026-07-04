@@ -72,36 +72,7 @@ export function Impact() {
         
         <div className="impact__asymmetric-layout">
           
-          {/* LEFT COLUMN: Video Carousel */}
-          <div className="impact__col-right">
-            <div className="impact__carousel-container impact__carousel--video">
-              <div className="portrait-video-container">
-                {activityVideos.map((vid, idx) => (
-                  <video 
-                    key={vid}
-                    src={vid} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
-                  />
-                ))}
-              </div>
-              <div className="carousel-dots">
-                {activityVideos.map((_, i) => (
-                  <button 
-                    key={i} 
-                    className={`dot ${i === videoIdx ? 'active' : ''}`} 
-                    onClick={() => setVideoIdx(i)} 
-                    aria-label={`Go to video ${i + 1}`} 
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN: Text -> Stats -> Photo Carousel */}
+          {/* LEFT COLUMN: Text -> Stats -> Photo Carousel */}
           <div className="impact__col-left">
             <div className="impact__text">
               <span className="section-eyebrow" style={{ color: "#7FDED9" }}>Community & sustainability</span>
@@ -134,6 +105,35 @@ export function Impact() {
                     className={`dot ${i === statIdx ? 'active' : ''}`} 
                     onClick={() => setStatIdx(i)} 
                     aria-label={`Go to photo ${i + 1}`} 
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Video Carousel */}
+          <div className="impact__col-right">
+            <div className="impact__carousel-container impact__carousel--video">
+              <div className="portrait-video-container">
+                {activityVideos.map((vid, idx) => (
+                  <video 
+                    key={vid}
+                    src={vid} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className={`impact__video ${idx === videoIdx ? 'active' : ''}`}
+                  />
+                ))}
+              </div>
+              <div className="carousel-dots">
+                {activityVideos.map((_, i) => (
+                  <button 
+                    key={i} 
+                    className={`dot ${i === videoIdx ? 'active' : ''}`} 
+                    onClick={() => setVideoIdx(i)} 
+                    aria-label={`Go to video ${i + 1}`} 
                   />
                 ))}
               </div>

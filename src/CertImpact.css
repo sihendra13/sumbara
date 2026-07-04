@@ -73,15 +73,15 @@
   width: 600px;
   height: 600px;
   background: rgba(127, 222, 217, 0.4); /* Light Teal */
-  top: -100px;
-  left: -150px;
+  bottom: -50px;
+  right: -100px;
 }
 .impact::after {
   width: 500px;
   height: 500px;
   background: rgba(42, 165, 160, 0.5); /* Teal */
-  bottom: -50px;
-  right: -100px;
+  top: -100px;
+  left: -150px;
   animation-delay: -5s;
 }
 
