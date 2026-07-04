@@ -100,6 +100,5 @@ export const impactStats = [
 
 export const activityVideos = [
   "/Asset/Activity 1.mp4",
-  "/Asset/Activity 2.mp4",
-  "/Asset/petani-rumput-laut.mp4"
+  "/Asset/Activity 2.mp4"
 ];

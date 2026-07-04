@@ -58,29 +58,71 @@
 }
 
 .impact__content {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
   position: relative;
   z-index: 1;
+}
+
+/* TOP ROW */
+.impact__top-row {
   display: grid;
-  grid-template-columns: 1fr 300px 1fr;
-  gap: 40px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 
-/* Carousel Containers */
-.impact__carousel-container {
+.impact__carousel--video {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  gap: 24px;
 }
 
-/* Video Bento Box */
-.impact__video-bento {
-  border-radius: 24px;
-  overflow: hidden;
-  height: 500px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+/* iPhone Mockup */
+.iphone-mockup {
   position: relative;
+  width: 320px;
+  height: 650px;
+  background: #111;
+  border-radius: 54px;
+  padding: 14px;
+  box-shadow: inset 0 0 0 2px #555, inset 0 0 0 6px #000, 0 30px 60px rgba(0,0,0,0.6);
 }
+.iphone-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 30px;
+  background: #000;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  z-index: 10;
+}
+.iphone-notch::after {
+  content: '';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  box-shadow: inset -2px -2px 4px rgba(255,255,255,0.1);
+}
+.iphone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
 .impact__video {
   position: absolute;
   inset: 0;
@@ -96,69 +138,63 @@
   pointer-events: auto;
 }
 
-/* Stats Carousel */
-.impact__stats-carousel {
-  border-radius: 24px;
-  overflow: hidden;
-  height: 500px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  position: relative;
+/* BOTTOM ROW */
+.impact__bottom-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
 }
-.impact-stat-slide {
-  position: absolute;
-  inset: 0;
+
+.impact__carousel--photo {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 32px;
+  gap: 24px;
+}
+
+.impact__photo-carousel {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 480px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.impact-photo-slide {
+  position: absolute;
+  inset: 0;
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
 }
-.impact-stat-slide.active {
+.impact-photo-slide.active {
   opacity: 1;
   pointer-events: auto;
 }
-.impact-stat__bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.impact-stat__bg img {
+.impact-photo-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
 }
-.impact-stat-slide:hover .impact-stat__bg img {
-  transform: scale(1.05);
+
+.impact__stat-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.impact-stat__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(11,77,91,0.85) 0%, rgba(74,124,89,0.70) 100%);
-  transition: opacity 0.4s ease;
-}
-.impact-stat-slide:hover .impact-stat__overlay {
-  opacity: 0.7;
-}
-.impact-stat__content {
-  position: relative;
-  z-index: 1;
-}
+
 .impact-stat__value {
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: 80px;
   color: #fff;
-  margin-bottom: 8px;
+  line-height: 1;
+  margin-bottom: 16px;
 }
-.impact-stat__label { 
-  font-size: 16px; 
-  color: rgba(255,255,255,0.9); 
-  line-height: 1.5; 
-  font-weight: 500; 
+.impact-stat__label {
+  font-size: 24px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 300;
+  line-height: 1.4;
 }
 
 /* Carousel Dots */
@@ -187,5 +223,8 @@
 
 @media (max-width: 900px) {
   .certs__layout { grid-template-columns: 1fr; gap: 48px; }
-  .impact__content { grid-template-columns: 1fr; gap: 48px; }
+  .impact__top-row { grid-template-columns: 1fr; gap: 48px; }
+  .impact__bottom-row { grid-template-columns: 1fr; gap: 48px; }
+  .iphone-mockup { margin: 0 auto; width: 100%; max-width: 320px; }
+  .impact-stat__value { font-size: 64px; }
 }
