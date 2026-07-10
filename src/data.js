@@ -9,7 +9,7 @@ export const company = {
   email: "hello@kayuwangi.id",
   instagram: "kayuwangi.id",
   website: "www.kayuwangi.id",
-  role: "Digital Sourcing Hub",
+  role: "SUSTAINABLE SOURCING PARTNER",
 };
 
 export const stats = [

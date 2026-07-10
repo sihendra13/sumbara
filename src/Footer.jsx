@@ -15,8 +15,7 @@ export default function Footer() {
             <p className="footer__tagline">{company.tagline}</p>
             <p className="footer__role">{company.role}</p>
             <p className="footer__desc">
-              {company.name} — connecting Indonesia's premium natural commodities
-              to global industries through verified supplier partnerships.
+              {company.name} Empowering local coastal communities by connecting Indonesia's sustainably harvested seaweed directly to global manufacturers.
             </p>
           </div>
 
@@ -58,7 +57,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p>© 2026 {company.name}. All rights reserved.</p>
-          <p className="footer__haccp">Digital Sourcing Hub · Sleman, Yogyakarta · Indonesia</p>
+          <p className="footer__haccp">SUSTAINABLE SOURCING PARTNER · Sleman, Yogyakarta · Indonesia</p>
         </div>
       </div>
     </footer>
