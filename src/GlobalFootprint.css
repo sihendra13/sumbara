@@ -5,12 +5,13 @@
 .footprint__map-container {
   position: relative;
   width: 100%;
-  height: 400px;
-  background-color: var(--color-bg-alt);
+  height: 320px;
+  background: linear-gradient(180deg, #f8fcfb 0%, #e6f2f0 100%);
   border-radius: 12px;
   overflow: hidden;
   margin-top: 40px;
   margin-bottom: 40px;
+  border: 1px solid rgba(42,165,160,0.1);
 }
 
 .footprint__map-bg {

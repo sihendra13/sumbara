@@ -39,15 +39,39 @@ export default function MarketInsights() {
             </div>
             
             <div className="insights__chart-visual">
-              {/* Mock Chart CSS Visualization */}
-              <div className="insights__chart-lines">
-                <div className="insights__chart-line global-line">
-                  <span className="insights__line-label">Global Avg</span>
-                </div>
-                <div className="insights__chart-line sumbara-line">
-                  <span className="insights__line-label">Sumbara Direct</span>
-                </div>
-              </div>
+              <svg viewBox="0 0 500 200" className="insights__svg-chart" preserveAspectRatio="none">
+                {/* Grid lines */}
+                <line x1="0" y1="50" x2="500" y2="50" stroke="rgba(0,0,0,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="0" y1="100" x2="500" y2="100" stroke="rgba(0,0,0,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="0" y1="150" x2="500" y2="150" stroke="rgba(0,0,0,0.05)" strokeWidth="1" strokeDasharray="4 4" />
+                
+                {/* Global Average Line */}
+                <polyline 
+                  points="0,120 100,125 200,110 300,130 400,115 500,120" 
+                  fill="none" 
+                  stroke="#999" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                />
+                
+                {/* Sumbara Direct Line */}
+                <polyline 
+                  points="0,160 100,165 200,150 300,160 400,140 500,145" 
+                  fill="none" 
+                  stroke="#2AA5A0" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                />
+
+                {/* Data points for Sumbara */}
+                <circle cx="100" cy="165" r="4" fill="#2AA5A0" />
+                <circle cx="200" cy="150" r="4" fill="#2AA5A0" />
+                <circle cx="300" cy="160" r="4" fill="#2AA5A0" />
+                <circle cx="400" cy="140" r="4" fill="#2AA5A0" />
+                <circle cx="500" cy="145" r="4" fill="#2AA5A0" />
+              </svg>
               
               <div className="insights__chart-x-axis">
                 <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>

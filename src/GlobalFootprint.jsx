@@ -13,11 +13,26 @@ export default function GlobalFootprint() {
         </div>
 
         <div className="footprint__map-container">
-          {/* Decorative Map Background */}
+          {/* Decorative Map Background & Connecting Lines */}
           <div className="footprint__map-bg">
-            <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1">
-              <path d="M 200 200 Q 300 100 400 200 T 600 200 T 800 200" />
-              <path d="M 100 300 Q 250 150 500 300 T 900 300" />
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{width: '100%', height: '100%'}}>
+              {/* Line from Indonesia to China */}
+              <path d="M 75 60 Q 85 45 85 30" fill="none" stroke="rgba(42,165,160,0.3)" strokeWidth="0.5" strokeDasharray="1 1" />
+              {/* Line from Indonesia to Tunisia */}
+              <path d="M 75 60 Q 60 70 45 40" fill="none" stroke="rgba(42,165,160,0.3)" strokeWidth="0.5" strokeDasharray="1 1" />
+              
+              {/* Decorative grid */}
+              <g stroke="rgba(0,0,0,0.03)" strokeWidth="0.1">
+                <line x1="0" y1="20" x2="100" y2="20" />
+                <line x1="0" y1="40" x2="100" y2="40" />
+                <line x1="0" y1="60" x2="100" y2="60" />
+                <line x1="0" y1="80" x2="100" y2="80" />
+                
+                <line x1="20" y1="0" x2="20" y2="100" />
+                <line x1="40" y1="0" x2="40" y2="100" />
+                <line x1="60" y1="0" x2="60" y2="100" />
+                <line x1="80" y1="0" x2="80" y2="100" />
+              </g>
             </svg>
           </div>
 
