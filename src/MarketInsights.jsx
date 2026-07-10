@@ -47,6 +47,7 @@ export default function MarketInsights() {
                 
                 {/* Global Average Line */}
                 <polyline 
+                  className="insights__line-anim-global"
                   points="0,120 100,125 200,110 300,130 400,115 500,120" 
                   fill="none" 
                   stroke="#999" 
@@ -57,6 +58,7 @@ export default function MarketInsights() {
                 
                 {/* Sumbara Direct Line */}
                 <polyline 
+                  className="insights__line-anim-sumbara"
                   points="0,160 100,165 200,150 300,160 400,140 500,145" 
                   fill="none" 
                   stroke="#2AA5A0" 
@@ -66,11 +68,11 @@ export default function MarketInsights() {
                 />
 
                 {/* Data points for Sumbara */}
-                <circle cx="100" cy="165" r="4" fill="#2AA5A0" />
-                <circle cx="200" cy="150" r="4" fill="#2AA5A0" />
-                <circle cx="300" cy="160" r="4" fill="#2AA5A0" />
-                <circle cx="400" cy="140" r="4" fill="#2AA5A0" />
-                <circle cx="500" cy="145" r="4" fill="#2AA5A0" />
+                <circle cx="100" cy="165" r="4" fill="#2AA5A0" className="insights__dot-pulse" style={{animationDelay: '0.2s'}} />
+                <circle cx="200" cy="150" r="4" fill="#2AA5A0" className="insights__dot-pulse" style={{animationDelay: '0.4s'}} />
+                <circle cx="300" cy="160" r="4" fill="#2AA5A0" className="insights__dot-pulse" style={{animationDelay: '0.6s'}} />
+                <circle cx="400" cy="140" r="4" fill="#2AA5A0" className="insights__dot-pulse" style={{animationDelay: '0.8s'}} />
+                <circle cx="500" cy="145" r="4" fill="#2AA5A0" className="insights__dot-pulse" style={{animationDelay: '1.0s'}} />
               </svg>
               
               <div className="insights__chart-x-axis">
